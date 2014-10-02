@@ -17,6 +17,11 @@ app.get('/', function(request, response) {
   response.send(data);
 });
 
+app.get('/parallel', function(request, response) {
+  var data = fs.readFileSync('parallel.html').toString();
+  response.send(data);
+});
+
 http.createServer(app).listen(app.get('port'), function() {
   console.log("Listening on " + app.get('port'));
 });
