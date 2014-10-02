@@ -22,6 +22,16 @@ app.get('/parallel', function(request, response) {
   response.send(data);
 });
 
+app.get('/reactive', function(request, response) {
+  var data = fs.readFileSync('reactive.html').toString();
+  response.send(data);
+});
+
+app.get('/cloud', function(request, response) {
+  var data = fs.readFileSync('cloud.html').toString();
+  response.send(data);
+});
+
 http.createServer(app).listen(app.get('port'), function() {
   console.log("Listening on " + app.get('port'));
 });
