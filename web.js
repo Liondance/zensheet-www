@@ -32,6 +32,11 @@ app.get('/cloud', function(request, response) {
   response.send(data);
 });
 
+app.get('/email', function(request, response) {
+  var data = fs.readFileSync('email.html').toString();
+  response.send(data);
+});
+
 http.createServer(app).listen(app.get('port'), function() {
   console.log("Listening on " + app.get('port'));
 });
