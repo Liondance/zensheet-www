@@ -6,9 +6,9 @@
 
 html,body,#bg,#bg table,#bg td,#cont { width:100%;height:100%;overflow:hidden }
 
-body { font-family:Arial,Helvetica,sans-serif;font-size:10px;cursor:default;background:url(loading.gif);color:#FC8 }
+body { font-family:Arial,Helvetica,sans-serif;font-size:12px;cursor:default;background:url(loading.gif);color:#FC8 }
 
-h1,h2,.large,.left { font-family:"Times New Roman", "Century Gothic", "Lucida Grande", Arial, sans-serif;font-size:40px }
+h1,h2,.large,.left { font-family:"Times New Roman", "Century Gothic", "Lucida Grande", Arial, sans-serif;font-size:48px }
 h2,.box div img { padding-bottom:10px }
 
 a { text-decoration:none;color:#000;outline:0 }
@@ -29,7 +29,7 @@ h1 a { padding:41px 10px 10px 0;color:#fff;background:#000 url(go.gif) 0 -30px r
 h1 a:hover { background:#000 url(go.gif) 0 43px repeat-x }
 
 ul { float:left;width:220px }
-li a { height:12px;padding:0 5px;font-weight:bold;color:#999;display:block }
+li a { height:14px;padding:0 5px;font-weight:bold;color:#999;display:block }
 li a:hover,li.cur a { color:#fff }
 
 .box { position:absolute;top:15%;right:200px;width:500px;padding-bottom:100px }
