@@ -32,8 +32,8 @@ app.get('/cloud', function(request, response) {
   response.send(data);
 });
 
-app.get('/email', function(request, response) {
-  var data = fs.readFileSync('email.html').toString();
+app.get('/contact', function(request, response) {
+  var data = fs.readFileSync('contact.html').toString();
   response.send(data);
 });
 
