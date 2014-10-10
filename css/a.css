@@ -23,7 +23,7 @@ img { display:block }
 #menu div { height:56px;background:#000;opacity:0.6;filter:alpha(opacity=60);padding:7px 0 0 7px }
 
 h1 { position:relative;left:-141px;margin-bottom:-63px;width:140px;opacity:0.99 }
-h1 a { padding:41px 10px 10px 0;color:#fff;background:#000 url(go.gif) 0 -30px repeat-x;font-size:12px;text-align:right;display:block }
+h1 a { padding:41px 10px 10px 0;color:#fff;background:#000 url(go.gif) 0 -30px repeat-x;font-size:14px;text-align:right;display:block }
 h1 a:hover { background:#000 url(go.gif) 0 43px repeat-x }
 
 ul { float:left;width:220px }
