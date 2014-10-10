@@ -21,6 +21,7 @@ img { display:block }
 
 #menu { position:absolute;bottom:20px;left:141px;z-index:80;width:100%;line-height:12px }
 #menu div { height:56px;background:#000;opacity:0.6;filter:alpha(opacity=60);padding:7px 0 0 7px }
+#menu h1 { font-family:"Times New Roman"; font-size:14px }
 
 h1 { position:relative;left:-141px;margin-bottom:-63px;width:140px;opacity:0.99 }
 h1 a { padding:41px 10px 10px 0;color:#fff;background:#000 url(go.gif) 0 -30px repeat-x;font-size:11px;text-align:right;display:block }
