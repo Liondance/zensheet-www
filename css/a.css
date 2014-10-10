@@ -19,7 +19,7 @@ img { display:block }
 
 #cont { position:absolute;top:0;left:0;z-index:70;overflow:auto }
 
-#menu { position:absolute;bottom:20px;left:141px;z-index:80;width:100%;line-height:14px }
+#menu { position:absolute;bottom:20px;left:141px;z-index:80;width:100%;line-height:16px }
 #menu div { height:56px;background:#000;opacity:0.6;filter:alpha(opacity=60);padding:7px 0 0 7px }
 #menu div h1 { font-family:"Times New Roman"; font-size:16px }
 
