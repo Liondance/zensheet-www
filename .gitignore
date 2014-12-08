@@ -15,8 +15,18 @@ node_modules
 # Emacs
 *~
 
+# Images
+img/
+
 # backup files
 *.bak
+
+# Visual Studio files
+*.vcxproj
+*.vcxproj.*
+*.sdf
+*.sln
+*.suo
 
 # change command
 change
