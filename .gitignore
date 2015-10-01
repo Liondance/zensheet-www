@@ -27,6 +27,7 @@ img/
 *.sdf
 *.sln
 *.suo
+*.opensdf
 
 # change command
 change
