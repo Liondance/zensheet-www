@@ -28,7 +28,7 @@ h1 { position:relative;left:-141px;margin-bottom:-71px;width:140px;opacity:0.99 
 h1 a { padding: 49px 10px 10px 0px;color:#fff;background:#000 url(go.gif) 0 -30px repeat-x;font-size:11px;text-align:right;display:block }
 h1 a:hover { background:#000 url(go.gif) 0 43px repeat-x }
 
-ul { float:left;width:800px }
+ul { float:left;width:400px }
 li a { height:12px;padding:0 5px;font-weight:bold;color:#999;display:block }
 li a:hover,li.cur a { color:#fff }
 
