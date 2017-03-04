@@ -28,6 +28,7 @@ img/
 *.sln
 *.suo
 *.opensdf
+.vs
 
 # change command
 change
