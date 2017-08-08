@@ -32,8 +32,8 @@ app.get('/cloud', function(request, response) {
   response.send(data);
 });
 
-app.get('/demo', function (request, response) {
-    var data = fs.readFileSync('demo.html').toString();
+app.get('/live2017', function (request, response) {
+    var data = fs.readFileSync('live2017.html').toString();
     response.send(data);
 });
 
