@@ -1,0 +1,62 @@
+ul#examples-names {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+
+    transition: padding-top 1s;
+}
+
+a.example-name {
+    color: #FC8;
+    margin-right: 70px;
+}
+
+ul#examples-names li {
+    display: inline-block;
+
+    text-transform: uppercase;
+    line-height: 22px;
+    font-size: 1.17em;
+    letter-spacing: 0.5px;
+    padding-bottom: 8px;
+}
+
+ul#examples-names li:hover {
+    color: #ffffaa;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+ul#examples-names li.active {
+    border-bottom: 1px solid #ffffaa;
+    color: #ffffaa;
+    font-weight: bold;
+}
+
+.left {
+    right: 180px;
+}
+
+.box {
+    width: 75%;
+}
+
+.box div {
+    background: transparent;
+}
+
+.large {
+    top: 20%;
+    transition: top 1s;
+}
+
+h2#title {
+    transition: font-size 1s;
+}
+
+.example-content {
+    color: white;
+}
