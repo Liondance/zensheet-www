@@ -32,7 +32,12 @@ app.get('/cloud', function(request, response) {
   response.send(data);
 });
 
-app.get('/contact', function(request, response) {
+app.get('/demo', function (request, response) {
+    var data = fs.readFileSync('demo.html').toString();
+    response.send(data);
+});
+
+app.get('/contact', function (request, response) {
   var data = fs.readFileSync('contact.html').toString();
   response.send(data);
 });
