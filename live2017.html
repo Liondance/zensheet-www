@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>ZenSheet website</title>
     <title>ZenSheet website</title>
-    <base href="https://rawgit.com/Liondance/ZenSheet-www/master/" />
+    <!-- <base href="https://rawgit.com/Liondance/ZenSheet-www/master/" /> -->
     <link rel="stylesheet" media="screen" href="css/a.css" />
     <link rel="stylesheet" media="screen" href="css/live.css" />
 </head>
@@ -13,22 +13,78 @@
             <h2 id="title"><b>LIVE 2017</b></h2>
             
             <ul id="examples-names">
-                <a id="ex1-name" class="example-name" href="javascript:activate(1)"><li>Monte Carlo simulation</li></a>
-                <a id="ex2-name" class="example-name" href="javascript:activate(2)"><li>Containers and lazy-ness</li></a>
-                <a id="ex3-name" class="example-name" href="javascript:activate(3)"><li>Live</li></a>
+                <a id="ex0-name" class="example-name" href="javascript:activate(0)"><li>Monte Carlo simulation</li></a>
+                <a id="ex1-name" class="example-name" href="javascript:activate(1)"><li>Containers and lazy-ness</li></a>
+                <a id="ex2-name" class="example-name" href="javascript:activate(2)"><li>Lives</li></a>
             </ul>
 
-        <div id="ex1-cont" class="example-content">
-        </div>
+            <div id="ex0-cont" class="example-content">
+            </div>
 
-        <div id="ex2-cont" class="example-content">
-            <p>This example performs:</p>
-            <p>• Proper management of lazy elements</p>
-            <p>• Collapsing of arrays stemming from a lazy variable</p>
+            <div id="ex1-cont" class="example-content">
+                <p>This example performs:</p>
+                <p>• Proper management of lazy elements</p>
+                <p>• Collapsing of arrays stemming from a lazy variable</p>
+                <br />
+                <p>We will go through some steps to illustrate how the edition of lazy variables is handled depending on their laziness level.</p>
+                <br />
 
-            <img width="800" height="350" src="http://i.imgur.com/BiyJkgZ.png" alt=""/>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/iSmkqocn0oQ" frameborder="0" allowfullscreen></iframe>
-        </div>
+                <p>First, we will define two lazy variables (with the laziness asign operator ':-'), where each variable evaluates to a floating point number and its corresponding value is a uniform number between 0 and 1.</p>
+                <p>The '::' operator infers the data type of a variable depending on its value. In this case. the data type of <span class="it-text">x</span> and <span class="it-text">y</span> is <span class="it-text">lazy double</span>.</p>
+
+                <div class="code-section">
+                    <ul>
+                        <li>:: x :- uniform();</li>
+                        <li>:: y :- uniform();</li>
+                    </ul>
+                </div>
+                
+                <br />
+                <p>Now, let's define three variables that depend on <span class="it-text">x</span> and <span class="it-text">y</span>:</p>
+
+                <div class="code-section">
+                    <ul>
+                        <li>array[] => array[] => lazy double s1 := [['x', 'y'], ['x - y', 'x + y']];</li>
+                        <li>array[] => lazy array[] => double s2 := ['[ x, y ]', '[x - y, x + y]'];</li>
+                        <li>lazy array[] => array[] => double s3 := '[[ x, y ], [x - y, x + y]]';</li>
+                    </ul>
+                </div>
+
+                <p>Note that the three variables defined above use the apostrophe to set laziness. This way it is not necessary to use the laziness assign operator.</p>
+
+                <br />
+
+                <p>Let's see the layout of these variables:</p>
+                <div class="img-container"><img src="http://i.imgur.com/loNdsAy.png" /></div>
+                <!--img width="800" height="350" src="http://i.imgur.com/BiyJkgZ.png" alt=""/-->
+
+                <p>As you may note, although <span class="it-text">s1</span>, <span class="it-text">s2</span> and <span class="it-text">s3</span> have different definitions, they are represented the same way in the UI (because of the analysis of structure of the value of each variable).</p>
+                <br />
+                <p>What happens if we try to edit the cell in row 1, column 1 of each of these variables?</p>
+
+                <br />
+                <p class="bold-text">Editing s1:</p>
+                <p>Cells in <span class="it-text">s1</span> are reactive and independently editable.</p>
+
+                <br />
+                <p class="bold-text">Editing s2:</p>
+                <p>Double clicking on cell with row 1 and column 1 of s2 shows the formula for such row.</p>
+                <p>s1[1] is the formula for the middle row</p>  
+                <p>s1 is still displaying like a matrix</p>
+                <p>Enter sum(s1) as the formula for the middle row</p>
+
+                <br />
+                <p class="bold-text">Editing s3:</p>
+
+                    <p>Double clicking on any cell of s3 shows the formula for the entire array<p>
+                    <p>The value display for s3 becomes a one-dimensional array</p>
+                <!--img width="800" height="350" src="http://i.imgur.com/BiyJkgZ.png" alt=""/>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/iSmkqocn0oQ" frameborder="0" allowfullscreen></iframe-->
+            </div>
+
+
+            <div id="ex2-cont" class="example-content">
+            </div>            
         </div>
     </div>
     <div id="menu">
@@ -69,8 +125,11 @@
             var examples_names = document.getElementsByClassName("example-name");
             var en_lenght = examples_names.length;
             for (var i = 0; i < en_lenght; ++i) {
-                var li = examples_names[i].children[0];
-                li.setAttribute("class", "");
+                var names_li = examples_names[i].children[0];
+                names_li.setAttribute("class", "");
+
+                var content_div = document.getElementById("ex" + i + "-cont");
+                content_div.style.display = "none";
             }
         }
 
@@ -78,8 +137,12 @@
             set_translations();
             deactivate();
 
-            var li = document.getElementById("ex" + index + "-name").children[0];
-            li.setAttribute("class", "active");
+            var name_li = document.getElementById("ex" + index + "-name").children[0];
+            name_li.setAttribute("class", "active");
+
+            var content_div = document.getElementById("ex" + index + "-cont");
+            content_div.style.display = "block";
+            
             return false;   
         }
     </script>

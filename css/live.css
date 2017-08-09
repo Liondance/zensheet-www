@@ -58,5 +58,64 @@ h2#title {
 }
 
 .example-content {
+    display: none;
     color: white;
+    text-align: justify;
+}
+
+.code-section {
+    position: relative;
+    margin: 10px 0 ;
+    border: 1px solid #c4c4c4;
+    height: auto;
+    overflow: auto;
+    padding: 10px!important; 
+}
+
+.code-section ul {
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    background-color: #e2e2e2; /*#e2e2cc*/
+    color: black;
+}
+
+.code-section ul li {
+    padding-left: 10px;
+}
+
+#menu {
+    bottom: 0;
+}
+
+body {
+
+    flex-direction: column;
+    height: calc(100vh - 71px);
+}
+
+#cont {
+    position: relative;
+    -webkit-flex: 1 1 auto;
+    -moz-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    -o-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.it-text {
+    font-style: italic;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.img-container {
+    width: 100%;
+    text-align: center;
+}
+
+.img-container img {
+    margin: 0 auto;
 }
