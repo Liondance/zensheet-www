@@ -61,19 +61,19 @@
                     <li class="code-section-comment">// Interaction: show that the result is consistent with the central limit theorem and the law of large numbers</li>
                 </div>
 
-                <p>This demo starts with a pre-loaded definition of a function 'a' that, given an integer 'n', returns a vector of uniformly distributed random numbers in the [0, 1] range.</p>
+                <p>This demo starts with a pre-loaded definition of a function <span class="it-text">a</span> that, given an integer <span class="it-text">n</span>, returns a vector of uniformly distributed random numbers in the [0, 1] range.</p>
                 <br />
-                <p>The user first defines a lazy vector 'x' of random numbers by calling 'a' with a fixed argument.</p>
+                <p>The user first defines a lazy vector <span class="it-text">x</span> of random numbers by calling <span class="it-text">a</span> with a fixed argument.</p>
                 <br />
-                <p>Then makes the model more flexible by defining a non-lazy integer variable 'n' and changing 'x''s formula.</p>
+                <p>Then makes the model more flexible by defining a non-lazy integer variable <span class="it-text">n</span> and changing <span class="it-text">x</span>'s formula.</p>
                 <br />
-                <p>The user completes the model by defining a lazy variable 'z' that computes the average of 'x''s elements.</p>
+                <p>The user completes the model by defining a lazy variable <span class="it-text">z</span> that computes the average of <span class="it-text">x</span>'s elements.</p>
                 <br />
                 <p>Finally, the demo concludes with a demostration of the ZenSheet's Monte Carlo capabilities.</p>
                 <br />
-                <p>A histogram showing 'z''s distribution is generated for different sample sizes, i.e. vector 'x''s lengths.</p>
+                <p>A histogram showing <span class="it-text">z</span>'s distribution is generated for different sample sizes, i.e. vector <span class="it-text">x</span>'s lengths.</p>
                 <br />
-                <p>As 'n' increases, the distribution approximates a bell-shaped normal distribution.</p>
+                <p>As <span class="it-text">n</span> increases, the distribution approximates a bell-shaped normal distribution.</p>
                 <br />
 
                 <div class="video-container">
@@ -123,7 +123,7 @@
                 <p>This demo starts with the model entirely preloaded.</p>
                 <br />
 
-                <p>Three composite data structures, 's1, 's2', and 's3', are reactively (lazily) defined in terms of two scalars, 'x' and 'y', lazy variables themselves, taking random values uniformly distributed in the [0, 1] range. The type resulting from the evaluation of the composite data structures (rytpe) is the same for all three: array of array of double precision numbers. Moreover, the resulting arrays are identical by construction, as an inspection of their formulae can show. However, the type of the variables themselves (ltype) differs, because the 'granularity' of their formulae is different, as can be appreciated by the range of expressions under quotation. Indeed the demo script deliberately uses explicit quotation and type inference to show that the following equations hold:</p>
+                <p>Three composite data structures, <span class="it-text">s1</span>, <span class="it-text">s2</span>, and <span class="it-text">s3</span>, are reactively (lazily) defined in terms of two scalars, <span class="it-text">x</span> and <span class="it-text">y</span>, lazy variables themselves, taking random values uniformly distributed in the [0, 1] range. The type resulting from the evaluation of the composite data structures (rtype) is the same for all three: array of array of double precision numbers. Moreover, the resulting arrays are identical by construction, as an inspection of their formulae can show. However, the type of the variables themselves (ltype) differs, because the 'granularity' of their formulae is different, as can be appreciated by the range of expressions under quotation. Indeed the demo script deliberately uses explicit quotation and type inference to show that the following equations hold:</p>
 
                 <div class="code-section">
                     <ul>
@@ -134,7 +134,7 @@
                 </div>
 
 
-                <p>The user interaction shows what happens when editing these objects. Every time the user clicks on a cell, the editor shows the formula for the component variable that holds the formula that generates the range value containing that cell. The implication is that, in the case of 's1', the formula for every cell is independently editable, in the case of 's2' the formula for every row is independently editable, and, in the case of 's3', only the formula that generates the entire value can be edited. Unlike traditional spreadsheets like MS-Excel and its various imitations, ZenSheet clearly honors the precise data structure of lazy (i.e. formula defined) variables, without resorting to non-general ad-hoc hacks, like using Ctrl-Shift-Enter to enter "array formulae". This is in no minor way related to the sound separation of model and visualization.</p>
+                <p>The user interaction shows what happens when editing these objects. Every time the user clicks on a cell, the editor shows the formula for the component variable that holds the formula that generates the range value containing that cell. The implication is that, in the case of <span class="it-text">s1</span>, the formula for every cell is independently editable, in the case of <span class="it-text">s2</span> the formula for every row is independently editable, and, in the case of <span class="it-text">s3</span>, only the formula that generates the entire value can be edited. Unlike traditional spreadsheets like MS-Excel and its various imitations, ZenSheet clearly honors the precise data structure of lazy (i.e. formula defined) variables, without resorting to non-general ad-hoc hacks, like using Ctrl-Shift-Enter to enter "array formulae". This is in no minor way related to the sound separation of model and visualization.</p>
 
                 <div class="video-container">
                     <iframe width="660" height="415" src="https://www.youtube.com/embed/i3WsgL6RU_8" frameborder="0" allowfullscreen></iframe>
