@@ -17,51 +17,48 @@
                 <a id="ex1-name" class="example-name" href="javascript:activate(1)"><li>Containers and lazy-ness</li></a>
                 <a id="ex2-name" class="example-name" href="javascript:activate(2)"><li>Life process simulation</li></a>
             </ul>
-            <div id="menu">
-                <h3><a href="http://www.zensheet.com/"><b>Home</b></a></h3>
-            </div>
 
             <div id="ex0-cont" class="example-content">
 
                 <div class="code-section">
                     <ul>
-                        
-                    <li class="code-section-comment">///</li>
-                    <li class="code-section-comment">/// LIVE 2017 A</li>
-                    <li class="code-section-comment">///</li>
-                    <li class="code-section-comment">/// A simple model plus Monte Carlo simulation</li>
-                    <li class="code-section-comment">///</li>
-                    <li>&nbsp;</li>
-                    <li class="code-section-comment">//</li>
-                    <li>&nbsp;</li>
-                    <li>sys.reset();</li>
-                    <li>&nbsp;</li>
-                    <li class="code-section-comment">// Define function that returns a vector of n random (standard uniform) values</li>
-                    <li>&nbsp;</li>
-                    <li>:: a := /.(int n) => array[] => double -> if(n = 0, [], cons(uniform(), a(n-1)));</li>
-                    <li>&nbsp;</li>
-                    <li class="code-section-comment">// Interaction for LIVE demo: break here, do the rest manually on video</li>
-                    <li>&nbsp;</li>
-                    <li class="code-section-comment">.</li>
-                    <li>&nbsp;</li>
-                    <li>:: x :- a(4)</li>
-                    <li>&nbsp;</li>
-                    <li class="code-section-comment">// Interaction for LIVE demo: change x's formula</li>
-                    <li>&nbsp;</li>
-                    <li>x :- a(8);</li>
-                    <li>&nbsp;</li>
-                    <li class="code-section-comment">// Interaction for LIVE demo: introduce n and generalize x's formula, eval x several times, setting n to 1, 2, 4, 8, and length(a)</li>
-                    <li>&nbsp;</li>
-                    <li>:: n := 1;</li>
-                    <li>&nbsp;</li>
-                    <li>x :- a(n);</li>
-                    <li>&nbsp;</li>
-                    <li class="code-section-comment">// Interaction: define z</li>
-                    <li>&nbsp;</li>
-                    <li>:: z :- average(x);</li>
-                    <li>&nbsp;</li>
-                    <li class="code-section-comment">// Interaction: run MC on z with 20 buckets; setting n to 1, 2, .., 8</li>
-                    <li class="code-section-comment">// Interaction: show that the result is consistent with the central limit theorem and the law of large numbers</li>
+                        <li class="code-section-comment">///</li>
+                        <li class="code-section-comment">/// LIVE 2017 A</li>
+                        <li class="code-section-comment">///</li>
+                        <li class="code-section-comment">/// A simple model plus Monte Carlo simulation</li>
+                        <li class="code-section-comment">///</li>
+                        <li>&nbsp;</li>
+                        <li class="code-section-comment">//</li>
+                        <li>&nbsp;</li>
+                        <li>sys.reset();</li>
+                        <li>&nbsp;</li>
+                        <li class="code-section-comment">// Define function that returns a vector of n random (standard uniform) values</li>
+                        <li>&nbsp;</li>
+                        <li>:: a := /.(int n) => array[] => double -> if(n = 0, [], cons(uniform(), a(n-1)));</li>
+                        <li>&nbsp;</li>
+                        <li class="code-section-comment">// Interaction for LIVE demo: break here, do the rest manually on video</li>
+                        <li>&nbsp;</li>
+                        <li class="code-section-comment">.</li>
+                        <li>&nbsp;</li>
+                        <li>:: x :- a(4)</li>
+                        <li>&nbsp;</li>
+                        <li class="code-section-comment">// Interaction for LIVE demo: change x's formula</li>
+                        <li>&nbsp;</li>
+                        <li>x :- a(8);</li>
+                        <li>&nbsp;</li>
+                        <li class="code-section-comment">// Interaction for LIVE demo: introduce n and generalize x's formula, eval x several times, setting n to 1, 2, 4, 8, and length(a)</li>
+                        <li>&nbsp;</li>
+                        <li>:: n := 1;</li>
+                        <li>&nbsp;</li>
+                        <li>x :- a(n);</li>
+                        <li>&nbsp;</li>
+                        <li class="code-section-comment">// Interaction: define z</li>
+                        <li>&nbsp;</li>
+                        <li>:: z :- average(x);</li>
+                        <li>&nbsp;</li>
+                        <li class="code-section-comment">// Interaction: run MC on z with 20 buckets; setting n to 1, 2, .., 8</li>
+                        <li class="code-section-comment">// Interaction: show that the result is consistent with the central limit theorem and the law of large numbers</li>
+                    </ul>
                 </div>
 
                 <p>This demo starts with a pre-loaded definition of a function <span class="it-text">a</span> that, given an integer <span class="it-text">n</span>, returns a vector of uniformly distributed random numbers in the [0, 1] range.</p>
@@ -189,6 +186,25 @@
                     <iframe width="660" height="415" src="https://www.youtube.com/embed/FbiuoQpz5rc" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="menu">
+        <h1><a href="http://www.zensheet.com/"><b>ZenSheet</b></a></h1>
+        <div>
+            <ul>
+                <li><a href="http://www.zensheet.com/reactive">REACTIVE COMPUTING</a></li>
+                <li><a href="http://www.zensheet.com/parallel">PARALLEL COMPUTING</a></li>
+                <li><a href="http://www.zensheet.com/cloud">CLOUD COMPUTING</a></li>
+                <li><a href="http://www.zensheet.com/live2017">LIVE 2017</a></li>
+                <li><a href="http://www.zensheet.com/contact">contact us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="bg">
+        <div>
+            <table cellpadding="0" cellspacing="0">
+                <tr><td><img src="http://i.imgur.com/Ee52hOo.jpg" alt=""/></td></tr>
+            </table>
         </div>
     </div>
     <script type="text/javascript" src="js/core.js"></script>
