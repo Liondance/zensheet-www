@@ -119,3 +119,11 @@ body {
 .img-container img {
     margin: 0 auto;
 }
+
+.code-section-comment {
+    color: grey;
+}
+
+.video-container {
+    text-align: center;
+}
