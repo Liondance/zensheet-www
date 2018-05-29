@@ -10,36 +10,34 @@ var
 
 var app = express();
 
+app.use(express.static('views'));
+
 app.set('port', process.env.PORT || 8080);
 
-app.get('/', function(request, response) {
-  var data = fs.readFileSync('zensheet.html').toString();
-  response.send(data);
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res) {
+  res.render('index');
 });
 
-app.get('/parallel', function(request, response) {
-  var data = fs.readFileSync('parallel.html').toString();
-  response.send(data);
+app.get('/parallel', function(req, res) {
+   res.render('parallel');
 });
 
-app.get('/reactive', function(request, response) {
-  var data = fs.readFileSync('reactive.html').toString();
-  response.send(data);
+app.get('/reactive', function(req, res) {
+  res.render('reactive');
 });
 
-app.get('/cloud', function(request, response) {
-  var data = fs.readFileSync('cloud.html').toString();
-  response.send(data);
+app.get('/cloud', function(req, res) {
+  res.render('cloud');
 });
 
-app.get('/live2017', function (request, response) {
-    var data = fs.readFileSync('live2017.html').toString();
-    response.send(data);
+app.get('/live2017', function (req, res) {
+  res.render('live2017');
 });
 
-app.get('/contact', function (request, response) {
-  var data = fs.readFileSync('contact.html').toString();
-  response.send(data);
+app.get('/contact', function (req, res) {
+  res.render('contact');
 });
 
 http.createServer(app).listen(app.get('port'), function() {
