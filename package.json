@@ -4,6 +4,7 @@
   "description": "ZenSheet website",
   "main": "web.js",
   "scripts": {
+    "start": "node web.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 
