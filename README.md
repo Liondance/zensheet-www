@@ -137,4 +137,4 @@ After installing the dependencies and defining the environment variables, you ma
 	npm run start:dev 
 ``` 
 
-**Note**: This will use a library called 'nodemon' which will automatically restart the server after each file change. This is used to ease the development tasks.jaa
+**Note**: This will use a library called 'nodemon' which will automatically restart the server after each file change. This is used to ease the development tasks.
