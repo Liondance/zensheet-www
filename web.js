@@ -22,14 +22,6 @@ const redirect_uri = 'redirect_uri=' + config.COGNITO_APP_CLIENT_CALLBACK_URL + 
 const client_id = 'client_id=' + config.COGNITO_APP_CLIENT_ID
 const authentication_parameters = '?' + response_type + redirect_uri + client_id;
 
- + 'login?' +  +  +  + 
-
-
-
-
-
-
-
 app.set('port', process.env.PORT || 8080);
 
 app.use(express.static('views'));
