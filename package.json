@@ -1,18 +1,17 @@
 {
   "name": "ZenSheet",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "private": true,
   "description": "ZenSheet website",
   "main": "web.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-
   "dependencies": {
-    "express": "~4.16.2"
+    "express": "^4.17.1"
   },
-
   "engines": {
-    "node": "0.10.12",
-    "npm": "1.2.30"
+    "node": "^12.5.0",
+    "npm": "^6.9.2"
   }
 }
