@@ -1,255 +1,305 @@
 ﻿<!doctype html>
 <html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>ZenSheet website</title>
-    <title>ZenSheet website</title>
-    <base href="https://rawgit.com/Liondance/ZenSheet-www/master/" />
-    <link rel="stylesheet" media="screen" href="css/a.css" />
-    <link rel="stylesheet" media="screen" href="css/live.css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>ZenSheet website</title>
+  <title>ZenSheet website</title>
+  <base href="https://rawgit.com/Liondance/ZenSheet-www/master/" />
+  <link rel="stylesheet" media="screen" href="css/a.css" />
+  <link rel="stylesheet" media="screen" href="css/live.css" />
 </head>
+
 <body>
-    <div id="cont">
-        <div class="box large left">
-            <h2 id="title"><b>LIVE 2017</b></h2>
-            
-            <ul id="examples-names">
-                <a id="ex0-name" class="example-name" href="javascript:activate(0)"><li>Monte Carlo simulation</li></a>
-                <a id="ex1-name" class="example-name" href="javascript:activate(1)"><li>Containers and lazy-ness</li></a>
-                <a id="ex2-name" class="example-name" href="javascript:activate(2)"><li>Life process simulation</li></a>
-            </ul>
+  <div id="cont">
+    <div class="box large left">
+      <h2 id="title"><b>LIVE 2017</b></h2>
 
-            <div id="ex0-cont" class="example-content">
+      <ul id="examples-names">
+        <a id="ex0-name" class="example-name" href="javascript:activate(0)">
+          <li>Monte Carlo simulation</li>
+        </a>
+        <a id="ex1-name" class="example-name" href="javascript:activate(1)">
+          <li>Containers and lazy-ness</li>
+        </a>
+        <a id="ex2-name" class="example-name" href="javascript:activate(2)">
+          <li>Life process simulation</li>
+        </a>
+      </ul>
 
-                <div class="video-container">
-                    <iframe width="660" height="415" src="https://www.youtube.com/embed/cVxAaIIoB0I" frameborder="0" allowfullscreen></iframe>
-                </div>
+      <div id="ex0-cont" class="example-content">
 
-                <p>This demo starts with a pre-loaded definition of a function <span class="it-text">a</span> that, given an integer <span class="it-text">n</span>, returns a vector of uniformly distributed random numbers in the [0, 1] range.</p>
-                <br />
-                <p>The user first defines a lazy vector <span class="it-text">x</span> of random numbers by calling <span class="it-text">a</span> with a fixed argument.</p>
-                <br />
-                <p>Then makes the model more flexible by defining a non-lazy integer variable <span class="it-text">n</span> and changing <span class="it-text">x</span>'s formula.</p>
-                <br />
-                <p>The user completes the model by defining a lazy variable <span class="it-text">z</span> that computes the average of <span class="it-text">x</span>'s elements.</p>
-                <br />
-                <p>Finally, the demo concludes with a demostration of the ZenSheet's Monte Carlo capabilities.</p>
-                <br />
-                <p>A histogram showing <span class="it-text">z</span>'s distribution is generated for different sample sizes, i.e. vector <span class="it-text">x</span>'s lengths.</p>
-                <br />
-                <p>As <span class="it-text">n</span> increases, the distribution approximates a bell-shaped normal distribution.</p>
-
-                <div class="code-section">
-                    <ul>
-                        <li class="code-section-comment">///</li>
-                        <li class="code-section-comment">/// LIVE 2017 A</li>
-                        <li class="code-section-comment">///</li>
-                        <li class="code-section-comment">/// A simple model plus Monte Carlo simulation</li>
-                        <li class="code-section-comment">///</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">//</li>
-                        <li>&nbsp;</li>
-                        <li>sys.reset();</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// Define function that returns a vector of n random (standard uniform) values</li>
-                        <li>&nbsp;</li>
-                        <li>:: a := /.(int n) => array[] => double -> if(n = 0, [], cons(uniform(), a(n-1)));</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// Interaction for LIVE demo: break here, do the rest manually on video</li>
-                        <li>&nbsp;</li>
-                        <li>.</li>
-                        <li>&nbsp;</li>
-                        <li>:: x :- a(4)</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// Interaction for LIVE demo: change x's formula</li>
-                        <li>&nbsp;</li>
-                        <li>x :- a(8);</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// Interaction for LIVE demo: introduce n and generalize x's formula, eval x several times, setting n to 1, 2, 4, 8, and length(a)</li>
-                        <li>&nbsp;</li>
-                        <li>:: n := 1;</li>
-                        <li>&nbsp;</li>
-                        <li>x :- a(n);</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// Interaction: define z</li>
-                        <li>&nbsp;</li>
-                        <li>:: z :- average(x);</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// Interaction: run MC on z with 20 buckets; setting n to 1, 2, .., 8</li>
-                        <li class="code-section-comment">// Interaction: show that the result is consistent with the central limit theorem and the law of large numbers</li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div id="ex1-cont" class="example-content">
-                
-                <div class="video-container">
-                    <iframe width="660" height="330" src="https://www.youtube.com/embed/i3WsgL6RU_8" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <p>This demo starts with the model entirely preloaded.</p>
-                <br />
-
-                <p>Three composite data structures, <span class="it-text">s1</span>, <span class="it-text">s2</span>, and <span class="it-text">s3</span>, are reactively (lazily) defined in terms of two scalars, <span class="it-text">x</span> and <span class="it-text">y</span>, lazy variables themselves, taking random values uniformly distributed in the [0, 1] range. The type resulting from the evaluation of the composite data structures (rtype) is the same for all three: array of array of double precision numbers. Moreover, the resulting arrays are identical by construction, as an inspection of their formulae can show. However, the type of the variables themselves (ltype) differs, because the 'granularity' of their formulae is different, as can be appreciated by the range of expressions under quotation. Indeed the demo script deliberately uses explicit quotation and type inference to show that the following equations hold:</p>
-
-                <div class="code-section">
-                    <ul>
-                        <li>ltype(s1) = array[] => array[] => lazy double</li>
-                        <li>ltype(s2) = array[] => lazy array[] => double</li>
-                        <li>ltype(s3) = lazy array[] => array[] => double</li>
-                    </ul>
-                </div>
-
-                <p>The user interaction shows what happens when editing these objects. Every time the user clicks on a cell, the editor shows the formula for the component variable that holds the formula that generates the range value containing that cell. The implication is that, in the case of <span class="it-text">s1</span>, the formula for every cell is independently editable, in the case of <span class="it-text">s2</span> the formula for every row is independently editable, and, in the case of <span class="it-text">s3</span>, only the formula that generates the entire value can be edited. Unlike traditional spreadsheets like MS-Excel and its various imitations, ZenSheet clearly honors the precise data structure of lazy (i.e. formula defined) variables, without resorting to non-general ad-hoc hacks, like using Ctrl-Shift-Enter to enter "array formulae". This is in no minor way related to the sound separation of model and visualization.</p>
-
-                <div class="code-section">
-                    <ul>
-                        <li class="code-section-comment">///</li>
-                        <li class="code-section-comment">/// LIVE 2017 B</li>
-                        <li class="code-section-comment">///</li>
-                        <li class="code-section-comment">/// About containers and lazy-ness</li>
-                        <li class="code-section-comment">///</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">//</li>
-                        <li>&nbsp;</li>
-                        <li>sys.reset();</li>
-                        <li>&nbsp;</li>
-                        <li>:: x :- uniform();</li>
-                        <li>:: y :- uniform();</li>
-                        <li>&nbsp;</li>
-                        <li>:: s1 := [</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;['x'],</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;['1 + x', '1 + y'],</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;['2 + x', '2 + y', '2 + x * y'],</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;['3 + x', '3 + y', '3 + x * y', '3 + (x * y)^2']</li>
-                        <li>];</li>
-                        <li>&nbsp;</li>
-                        <li>:: s2 := [</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;'[x]',</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;'[1 + x, 1 + y]',</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;'[2 + x, 2 + y, 2 + x * y]',</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;'[3 + x, 3 + y, 3 + x * y, 3 + (x * y)^2]'</li>
-                        <li>];</li>
-                        <li>&nbsp;</li>
-                        <li>:: s3 := '[</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;[x],</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;[1 + x, 1 + y],</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;[2 + x, 2 + y, 2 + x * y],</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;[3 + x, 3 + y, 3 + x * y, 3 + (x * y)^2]</li>
-                        <li>]';</li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div id="ex2-cont" class="example-content">
-
-                <div class="video-container">
-                    <iframe width="660" height="370" src="https://www.youtube.com/embed/FbiuoQpz5rc" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <p>This demo shows a simplified "life process simulation" inspired by life insurance models. Actuarial tables in the U.S. show the probability of individuals (male and females have different tables) reaching age x, given that they have reached age x-1. In tyhe demo we use a very short array (we will pretend the subjects are not human) and spice things up a little bit by adding a little noise to the probabilities. Beware: this model is not a good one, because adding a uniformly distributed noise to probabilities is a bad idea for many reasons. A good model should use a noise formula that is not just centered around zero, but adjusts its shape according to the vecinity to the extremes of the (0, 1) probability range.</p>
-                <br />
-                <p>The user first demostrates how the noise radius affects the vector of noise adjusted probabilities. Then shows the vectors independently generated by the stochastic process for each subject. Finally, modifies the formula for the vector of lives, to show the name of the subjects and the length of their lives instead of an array os 1's.</p>
-
-                <div class="code-section">
-                    <ul>   
-                        <li class="code-section-comment">///</li>
-                        <li class="code-section-comment">/// LIVE 2017 C</li>
-                        <li class="code-section-comment">///</li>
-                        <li>&nbsp;</li>
-                        <li>sys.reset();</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// Base probabilities</li>
-                        <li>&nbsp;</li>
-                        <li>:: pbase :- [ 0.9, 0.9, 0.9, 0.8, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1 ];</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// A little noise</li>
-                        <li>&nbsp;</li>
-                        <li>:: noise_radius := 0.05;</li>
-                        <li>&nbsp;</li>
-                        <li>:: noise := /.() => double -> noise_radius * (2.0 * uniform() - 1.0);</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// Vector of probabilities with noise</li>
-                        <li>&nbsp;</li>
-                        <li>:: prand :- fmap(/.(x) -> x + noise(), pbase);</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// note: (optional) show that the noise is independent between cells</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// Life process simulation</li>
-                        <li>&nbsp;</li>
-                        <li>:: life := /.(p) -> if(p = [] || uniform() > head(p), [], cons(1, life(tail(p))));</li>
-                        <li>&nbsp;</li>
-                        <li>:: lives :- fmap(/.(s) -> life(prand), ["Ana", "Betty", "Charlie", "Doug", "Eva", "Frank", "Guinevere", "Hercules"]);</li>
-                        <li>&nbsp;</li>
-                        <li class="code-section-comment">// note: make this look better and more stable, showing names and length!</li>
-                    </ul>
-                </div>
-
-            </div>
+        <div class="video-container">
+          <iframe width="660" height="415" src="https://www.youtube.com/embed/cVxAaIIoB0I" frameborder="0"
+            allowfullscreen></iframe>
         </div>
-    </div>
-    <div id="menu">
-        <h1><a href="http://www.zensheet.com/"><b>ZenSheet</b></a></h1>
-        <div>
+
+        <p>This demo starts with a pre-loaded definition of a function <span class="it-text">a</span> that, given an
+          integer <span class="it-text">n</span>, returns a vector of uniformly distributed random numbers in the [0, 1]
+          range.</p>
+        <br />
+        <p>The user first defines a lazy vector <span class="it-text">x</span> of random numbers by calling <span
+            class="it-text">a</span> with a fixed argument.</p>
+        <br />
+        <p>Then makes the model more flexible by defining a non-lazy integer variable <span class="it-text">n</span> and
+          changing <span class="it-text">x</span>'s formula.</p>
+        <br />
+        <p>The user completes the model by defining a lazy variable <span class="it-text">z</span> that computes the
+          average of <span class="it-text">x</span>'s elements.</p>
+        <br />
+        <p>Finally, the demo concludes with a demostration of the ZenSheet's Monte Carlo capabilities.</p>
+        <br />
+        <p>A histogram showing <span class="it-text">z</span>'s distribution is generated for different sample sizes,
+          i.e. vector <span class="it-text">x</span>'s lengths.</p>
+        <br />
+        <p>As <span class="it-text">n</span> increases, the distribution approximates a bell-shaped normal distribution.
+        </p>
+
+        <div class="code-section">
           <ul>
-            <li><a href="http://www.zensheet.com/">SPREADSHEET MODELING</a></li>
-            <li>
-              <a href="http://www.zensheet.com/">LIVE REACTIVE PROGRAMMING</a>
+            <li class="code-section-comment">///</li>
+            <li class="code-section-comment">/// LIVE 2017 A</li>
+            <li class="code-section-comment">///</li>
+            <li class="code-section-comment">/// A simple model plus Monte Carlo simulation</li>
+            <li class="code-section-comment">///</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">//</li>
+            <li>&nbsp;</li>
+            <li>sys.reset();</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// Define function that returns a vector of n random (standard uniform)
+              values</li>
+            <li>&nbsp;</li>
+            <li>:: a := /.(int n) => array[] => double -> if(n = 0, [], cons(uniform(), a(n-1)));</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// Interaction for LIVE demo: break here, do the rest manually on video
             </li>
-            <li><a href="http://www.zensheet.com/">STREAM PROCESSING</a></li>
-            <li><a href="http://www.zensheet.com/">PARALLEL COMPUTING</a></li>
-            <li>
-              <b><a href="http://portal.zensheet.com/">BETA TRIAL</a></b>
+            <li>&nbsp;</li>
+            <li>.</li>
+            <li>&nbsp;</li>
+            <li>:: x :- a(4)</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// Interaction for LIVE demo: change x's formula</li>
+            <li>&nbsp;</li>
+            <li>x :- a(8);</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// Interaction for LIVE demo: introduce n and generalize x's formula, eval
+              x several times, setting n to 1, 2, 4, 8, and length(a)</li>
+            <li>&nbsp;</li>
+            <li>:: n := 1;</li>
+            <li>&nbsp;</li>
+            <li>x :- a(n);</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// Interaction: define z</li>
+            <li>&nbsp;</li>
+            <li>:: z :- average(x);</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// Interaction: run MC on z with 20 buckets; setting n to 1, 2, .., 8</li>
+            <li class="code-section-comment">// Interaction: show that the result is consistent with the central limit
+              theorem and the law of large numbers</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div id="ex1-cont" class="example-content">
+
+        <div class="video-container">
+          <iframe width="660" height="330" src="https://www.youtube.com/embed/i3WsgL6RU_8" frameborder="0"
+            allowfullscreen></iframe>
+        </div>
+
+        <p>This demo starts with the model entirely preloaded.</p>
+        <br />
+
+        <p>Three composite data structures, <span class="it-text">s1</span>, <span class="it-text">s2</span>, and <span
+            class="it-text">s3</span>, are reactively (lazily) defined in terms of two scalars, <span
+            class="it-text">x</span> and <span class="it-text">y</span>, lazy variables themselves, taking random values
+          uniformly distributed in the [0, 1] range. The type resulting from the evaluation of the composite data
+          structures (rtype) is the same for all three: array of array of double precision numbers. Moreover, the
+          resulting arrays are identical by construction, as an inspection of their formulae can show. However, the type
+          of the variables themselves (ltype) differs, because the 'granularity' of their formulae is different, as can
+          be appreciated by the range of expressions under quotation. Indeed the demo script deliberately uses explicit
+          quotation and type inference to show that the following equations hold:</p>
+
+        <div class="code-section">
+          <ul>
+            <li>ltype(s1) = array[] => array[] => lazy double</li>
+            <li>ltype(s2) = array[] => lazy array[] => double</li>
+            <li>ltype(s3) = lazy array[] => array[] => double</li>
+          </ul>
+        </div>
+
+        <p>The user interaction shows what happens when editing these objects. Every time the user clicks on a cell, the
+          editor shows the formula for the component variable that holds the formula that generates the range value
+          containing that cell. The implication is that, in the case of <span class="it-text">s1</span>, the formula for
+          every cell is independently editable, in the case of <span class="it-text">s2</span> the formula for every row
+          is independently editable, and, in the case of <span class="it-text">s3</span>, only the formula that
+          generates the entire value can be edited. Unlike traditional spreadsheets like MS-Excel and its various
+          imitations, ZenSheet clearly honors the precise data structure of lazy (i.e. formula defined) variables,
+          without resorting to non-general ad-hoc hacks, like using Ctrl-Shift-Enter to enter "array formulae". This is
+          in no minor way related to the sound separation of model and visualization.</p>
+
+        <div class="code-section">
+          <ul>
+            <li class="code-section-comment">///</li>
+            <li class="code-section-comment">/// LIVE 2017 B</li>
+            <li class="code-section-comment">///</li>
+            <li class="code-section-comment">/// About containers and lazy-ness</li>
+            <li class="code-section-comment">///</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">//</li>
+            <li>&nbsp;</li>
+            <li>sys.reset();</li>
+            <li>&nbsp;</li>
+            <li>:: x :- uniform();</li>
+            <li>:: y :- uniform();</li>
+            <li>&nbsp;</li>
+            <li>:: s1 := [</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;['x'],</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;['1 + x', '1 + y'],</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;['2 + x', '2 + y', '2 + x * y'],</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;['3 + x', '3 + y', '3 + x * y', '3 + (x * y)^2']</li>
+            <li>];</li>
+            <li>&nbsp;</li>
+            <li>:: s2 := [</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;'[x]',</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;'[1 + x, 1 + y]',</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;'[2 + x, 2 + y, 2 + x * y]',</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;'[3 + x, 3 + y, 3 + x * y, 3 + (x * y)^2]'</li>
+            <li>];</li>
+            <li>&nbsp;</li>
+            <li>:: s3 := '[</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;[x],</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;[1 + x, 1 + y],</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;[2 + x, 2 + y, 2 + x * y],</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;[3 + x, 3 + y, 3 + x * y, 3 + (x * y)^2]</li>
+            <li>]';</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div id="ex2-cont" class="example-content">
+
+        <div class="video-container">
+          <iframe width="660" height="370" src="https://www.youtube.com/embed/FbiuoQpz5rc" frameborder="0"
+            allowfullscreen></iframe>
+        </div>
+
+        <p>This demo shows a simplified "life process simulation" inspired by life insurance models. Actuarial tables in
+          the U.S. show the probability of individuals (male and females have different tables) reaching age x, given
+          that they have reached age x-1. In tyhe demo we use a very short array (we will pretend the subjects are not
+          human) and spice things up a little bit by adding a little noise to the probabilities. Beware: this model is
+          not a good one, because adding a uniformly distributed noise to probabilities is a bad idea for many reasons.
+          A good model should use a noise formula that is not just centered around zero, but adjusts its shape according
+          to the vecinity to the extremes of the (0, 1) probability range.</p>
+        <br />
+        <p>The user first demostrates how the noise radius affects the vector of noise adjusted probabilities. Then
+          shows the vectors independently generated by the stochastic process for each subject. Finally, modifies the
+          formula for the vector of lives, to show the name of the subjects and the length of their lives instead of an
+          array os 1's.</p>
+
+        <div class="code-section">
+          <ul>
+            <li class="code-section-comment">///</li>
+            <li class="code-section-comment">/// LIVE 2017 C</li>
+            <li class="code-section-comment">///</li>
+            <li>&nbsp;</li>
+            <li>sys.reset();</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// Base probabilities</li>
+            <li>&nbsp;</li>
+            <li>:: pbase :- [ 0.9, 0.9, 0.9, 0.8, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1 ];</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// A little noise</li>
+            <li>&nbsp;</li>
+            <li>:: noise_radius := 0.05;</li>
+            <li>&nbsp;</li>
+            <li>:: noise := /.() => double -> noise_radius * (2.0 * uniform() - 1.0);</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// Vector of probabilities with noise</li>
+            <li>&nbsp;</li>
+            <li>:: prand :- fmap(/.(x) -> x + noise(), pbase);</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// note: (optional) show that the noise is independent between cells</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// Life process simulation</li>
+            <li>&nbsp;</li>
+            <li>:: life := /.(p) -> if(p = [] || uniform() > head(p), [], cons(1, life(tail(p))));</li>
+            <li>&nbsp;</li>
+            <li>:: lives :- fmap(/.(s) -> life(prand), ["Ana", "Betty", "Charlie", "Doug", "Eva", "Frank", "Guinevere",
+              "Hercules"]);</li>
+            <li>&nbsp;</li>
+            <li class="code-section-comment">// note: make this look better and more stable, showing names and length!
             </li>
           </ul>
-          </div>
-    </div>
-    <div id="bg">
-        <div>
-            <table cellpadding="0" cellspacing="0">
-                <tr><td><img src="http://i.imgur.com/Ee52hOo.jpg" alt=""/></td></tr>
-            </table>
         </div>
+
+      </div>
     </div>
-    <script type="text/javascript" src="js/core.js"></script>
-    <script type="text/javascript" src="js/mootools.js"></script>
-    <script type="text/javascript" src="http://www.google-analytics.com/urchin.js"> </script>
-    <script type="text/javascript"> _uacct = "UA-43037679-2"; urchinTracker(); </script>
+  </div>
+  <div id="menu">
+    <h1><a href="http://www.zensheet.com/"><b>ZenSheet</b></a></h1>
+    <div>
+      <ul>
+        <li><a href="http://www.zensheet.com/">SPREADSHEET MODELING</a></li>
+        <li>
+          <a href="http://www.zensheet.com/">LIVE REACTIVE PROGRAMMING</a>
+        </li>
+        <li><a href="http://www.zensheet.com/">STREAM PROCESSING</a></li>
+        <li><a href="http://www.zensheet.com/">PARALLEL COMPUTING</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="bg">
+    <div>
+      <table cellpadding="0" cellspacing="0">
+        <tr>
+          <td><img src="http://i.imgur.com/Ee52hOo.jpg" alt="" /></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/core.js"></script>
+  <script type="text/javascript" src="js/mootools.js"></script>
+  <script type="text/javascript" src="http://www.google-analytics.com/urchin.js"> </script>
+  <script type="text/javascript"> _uacct = "UA-43037679-2"; urchinTracker(); </script>
 
-    <script>
-        function set_translations() {
-            var box = document.getElementsByClassName("box large left")[0];
-            box.setAttribute("style", "top: 10px");
+  <script>
+    function set_translations() {
+      var box = document.getElementsByClassName("box large left")[0];
+      box.setAttribute("style", "top: 10px");
 
-            document.getElementById("title").setAttribute("style", "font-size: 26px");
+      document.getElementById("title").setAttribute("style", "font-size: 26px");
 
-            var examples_list = document.getElementById("examples-names");
-            examples_list.setAttribute("style", "padding-top: 10px");
-        }
+      var examples_list = document.getElementById("examples-names");
+      examples_list.setAttribute("style", "padding-top: 10px");
+    }
 
-        function deactivate() {
-            var examples_names = document.getElementsByClassName("example-name");
-            var en_lenght = examples_names.length;
-            for (var i = 0; i < en_lenght; ++i) {
-                var names_li = examples_names[i].children[0];
-                names_li.setAttribute("class", "");
+    function deactivate() {
+      var examples_names = document.getElementsByClassName("example-name");
+      var en_lenght = examples_names.length;
+      for (var i = 0; i < en_lenght; ++i) {
+        var names_li = examples_names[i].children[0];
+        names_li.setAttribute("class", "");
 
-                var content_div = document.getElementById("ex" + i + "-cont");
-                content_div.style.display = "none";
-            }
-        }
+        var content_div = document.getElementById("ex" + i + "-cont");
+        content_div.style.display = "none";
+      }
+    }
 
-        function activate(index) {
-            set_translations();
-            deactivate();
+    function activate(index) {
+      set_translations();
+      deactivate();
 
-            var name_li = document.getElementById("ex" + index + "-name").children[0];
-            name_li.setAttribute("class", "active");
+      var name_li = document.getElementById("ex" + index + "-name").children[0];
+      name_li.setAttribute("class", "active");
 
-            var content_div = document.getElementById("ex" + index + "-cont");
-            content_div.style.display = "block";
-        }
-    </script>
+      var content_div = document.getElementById("ex" + index + "-cont");
+      content_div.style.display = "block";
+    }
+  </script>
 </body>
+
 </html>
